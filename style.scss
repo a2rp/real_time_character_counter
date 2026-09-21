@@ -1,0 +1,41 @@
+*,
+::before,
+::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+}
+
+.container {
+    background-color: #222;
+    color: #fff;
+    min-height: 100vh;
+    padding: 30px;
+
+    .heading {
+        text-decoration: underline;
+    }
+
+    .writingArea {
+        margin-top: 30px;
+
+        label {
+            display: block;
+
+            .remaining {
+                color: #0f0;
+            }
+            .total {
+                color: #00f;
+            }
+        }
+
+        textarea {
+            margin-top: 10px;
+            padding: 10px;
+            width: 300px;
+        }
+    }
+}
