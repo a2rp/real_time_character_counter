@@ -1,34 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>a2rp: Real Time Character Counter</title>
-        <link rel="stylesheet" href="style.css" />
-        <script src="script.js" defer></script>
-    </head>
-    <body>
-        <div class="container">
-            <div class="heading">a2rp: Real Time Character Counter</div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#091321" />
+  <meta name="description" content="A responsive real-time character counter built with plain JavaScript." />
+  <meta property="og:title" content="Real Time Character Counter | Ashish Ranjan" />
+  <meta property="og:description" content="A responsive real-time character counter built with plain JavaScript." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://a2rp.github.io/real_time_character_counter/" />
+  <meta property="og:image" content="https://a2rp.github.io/real_time_character_counter/public/preview.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="public/favicon.ico" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+  <title>Real Time Character Counter | Ashish Ranjan</title>
+</head>
+<body>
+  <div class="app">
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Character counter home">
+        <img src="public/logo.png" alt="Ashish Ranjan logo" />
+        <span><small>PLAIN JAVASCRIPT</small><strong>Character Counter</strong></span>
+      </a>
+      <a class="header-link" href="#editor">Start writing <span aria-hidden="true">↘</span></a>
+    </header>
 
-            <div class="writingArea">
-                <label for="input"
-                    >Writing Something below
-                    <span class="counting">
-                        [<span class="remaining">50</span>/<span class="total"
-                            >50</span
-                        >]
-                    </span>
-                </label>
-                <textarea
-                    name="input"
-                    id="input"
-                    cols="30"
-                    rows="10"
-                    placeholder="Write something here"
-                    maxlength="50"
-                ></textarea>
-            </div>
+    <main id="top">
+      <section class="hero page-shell">
+        <div>
+          <p class="eyebrow">Write within the limit</p>
+          <h1>Make every character count.</h1>
+          <p class="hero-text">A focused writing space that keeps your character limit visible while you type, paste, and refine a short message.</p>
         </div>
-    </body>
+        <div class="hero-note"><span class="status-dot"></span><strong>50 characters available</strong><span>Updates as you type</span></div>
+      </section>
+
+      <section class="editor-layout page-shell" id="editor">
+        <div class="editor-card">
+          <div class="editor-heading">
+            <div><p class="eyebrow">Live editor</p><h2>Write something below</h2></div>
+            <span class="counter"><span id="remaining" class="remaining">50</span><span class="slash">/</span><span>50</span></span>
+          </div>
+          <label class="sr-only" for="input">Write something here</label>
+          <textarea id="input" name="input" maxlength="50" rows="7" placeholder="Start writing here..." spellcheck="true"></textarea>
+          <div class="editor-footer">
+            <span id="helper-text">50 characters left</span>
+            <button id="clear-button" class="clear-button" type="button">Clear</button>
+          </div>
+        </div>
+
+        <aside class="side-card">
+          <img src="public/preview.png" alt="Abstract local project preview" />
+          <div class="side-card-copy"><p class="eyebrow">Quick feedback</p><h2>Short text, clear signal.</h2><p>Use the live details below to keep a small piece of copy concise and readable.</p></div>
+          <div class="stats">
+            <div><strong id="word-count">0</strong><span>Words</span></div>
+            <div><strong id="line-count">0</strong><span>Lines</span></div>
+            <div><strong id="character-count">0</strong><span>Typed</span></div>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner page-shell">
+        <span>Copyright © <span id="year"></span> <a href="https://www.ashishranjan.net/" target="_blank" rel="noopener noreferrer">Ashish Ranjan</a></span>
+        <div class="footer-links" aria-label="Social and support links">
+          <a href="https://www.ashishranjan.net/" target="_blank" rel="noopener noreferrer" aria-label="Portfolio" title="Portfolio">◎</a>
+          <a href="https://github.com/a2rp" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">●</a>
+          <a href="https://codepen.io/ash1198" target="_blank" rel="noopener noreferrer" aria-label="CodePen" title="CodePen">⌘</a>
+          <a href="https://www.linkedin.com/in/aashishranjan" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">in</a>
+          <a href="https://www.facebook.com/theash.ashish/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">f</a>
+          <a href="https://www.youtube.com/@ashishranjan-ashz?sub_confirmation=1" target="_blank" rel="noopener noreferrer" aria-label="YouTube" title="YouTube">▶</a>
+          <a href="https://a2rp-donation-page.netlify.app/" target="_blank" rel="noopener noreferrer" aria-label="Support" title="Support">♥</a>
+          <a href="https://buymeacoffee.com/a2rp" target="_blank" rel="noopener noreferrer" aria-label="Buy Me a Coffee" title="Buy Me a Coffee">☕</a>
+          <a href="https://www.patreon.com/a2rp" target="_blank" rel="noopener noreferrer" aria-label="Patreon" title="Patreon">P</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
 </html>
