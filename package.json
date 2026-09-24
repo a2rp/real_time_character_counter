@@ -1,1 +1,1 @@
-﻿{"private":true}
+{"scripts":{"deploy":"npx --yes gh-pages -d . -b gh-pages"}}

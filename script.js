@@ -1,21 +1,35 @@
-window.onload = () => {
-    const input = document.querySelector("#input");
+window.addEventListener("DOMContentLoaded", () => {
+  const input = document.querySelector("#input");
+  const remaining = document.querySelector("#remaining");
+  const helperText = document.querySelector("#helper-text");
+  const wordCount = document.querySelector("#word-count");
+  const lineCount = document.querySelector("#line-count");
+  const characterCount = document.querySelector("#character-count");
+  const clearButton = document.querySelector("#clear-button");
+  const maxLength = Number(input.maxLength);
+
+  const updateCounter = () => {
+    const text = input.value;
+    const left = maxLength - text.length;
+    const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+    const lines = text ? text.split(/\n/).length : 0;
+
+    remaining.textContent = String(left).padStart(2, "0");
+    remaining.className = left > 30 ? "remaining safe" : left > 15 ? "remaining caution" : "remaining warning";
+    helperText.textContent = `${left} character${left === 1 ? "" : "s"} left`;
+    wordCount.textContent = words;
+    lineCount.textContent = lines;
+    characterCount.textContent = text.length;
+  };
+
+  input.addEventListener("input", updateCounter);
+  clearButton.addEventListener("click", () => {
+    input.value = "";
+    updateCounter();
     input.focus();
-    const maxLength = input.getAttribute("maxlength");
-    input.addEventListener("keydown", (event) => {
-        const totalCharacters = input.value.length;
-        let remainingCharacters = maxLength - totalCharacters;
-        remainingCharacters = remainingCharacters < 10 ? "0" + remainingCharacters : remainingCharacters;
+  });
 
-        if (parseInt(remainingCharacters, 10) > 30) {
-            document.querySelector(".remaining").innerHTML = `<span style="color: #0f0;">${remainingCharacters}</span>`;
-        } else if (parseInt(remainingCharacters, 10) > 40) {
-            document.querySelector(".remaining").innerHTML = `<span style="color: orange;">${remainingCharacters}</span>`;
-        } else if (parseInt(remainingCharacters, 10) > 45) {
-            document.querySelector(".remaining").innerHTML = `<span style="color: orangered;">${remainingCharacters}</span>`;
-        } else {
-            document.querySelector(".remaining").innerHTML = `<span style="color: red;">${remainingCharacters}</span>`;
-        }
-    });
-};
-
+  document.querySelector("#year").textContent = new Date().getFullYear();
+  input.focus();
+  updateCounter();
+});
