@@ -1,1 +1,1 @@
-{"scripts":{"deploy":"npx --yes gh-pages -d . -b gh-pages"}}
+﻿{"name":"pages-bundle","version":"1.0.0"}
