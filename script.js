@@ -46,12 +46,13 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   mobileMenu.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
-  window.addEventListener("scroll", () => {
+  const updateTopButton = () => {
     topButton.hidden = window.scrollY < 420;
-  }, { passive: true });
+  };
+  window.addEventListener("scroll", updateTopButton, { passive: true });
+  updateTopButton();
   topButton.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
   document.querySelector("#year").textContent = new Date().getFullYear();
-  input.focus();
   updateCounter();
 });
